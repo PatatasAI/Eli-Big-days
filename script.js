@@ -1,6 +1,6 @@
 // RSVP Form Handling and Invitation Generation
 document.addEventListener('DOMContentLoaded', function() { 
-    const rsvpForm = document.getElementById('rsvp-form');
+    const rsvpForm = document.getElementById('rsvp-form'); 
     const landingPage = document.getElementById('landing-page');
     const invitationPage = document.getElementById('invitation-page');
     const guestNameDisplay = document.getElementById('guest-name-display');
