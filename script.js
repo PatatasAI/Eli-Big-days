@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const downloadBtn = document.getElementById('download-btn');
     const backBtn = document.getElementById('back-btn');
     const invitationCard = document.getElementById('invitation-card');
+    
+    // Email configuration - Replace with your actual email
+    const HOST_EMAIL = 'michaeljohnlano@gmail.com';
 
     // Store RSVP data (in a real app, this would be sent to a server)
     let rsvpData = [];
@@ -44,6 +47,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Save to localStorage (for demonstration purposes)
         saveToLocalStorage(rsvpData);
+        
+        // Send email notification using FormSubmit (free service)
+        sendEmailNotification(newRSVP);
 
         // Generate personalized invitation
         generateInvitation(guestName);
@@ -51,6 +57,54 @@ document.addEventListener('DOMContentLoaded', function() {
         // Show success message
         showSuccessMessage();
     });
+    
+    // Send email notification via FormSubmit
+    function sendEmailNotification(rsvp) {
+        const formData = new FormData();
+        formData.append('access_key', 'YOUR_FORMSUBMIT_KEY'); // You'll get this after first submission
+        formData.append('subject', `New RSVP from ${rsvp.guestName}`);
+        formData.append('message', `
+New Baptism RSVP Received!
+
+Guest Name: ${rsvp.guestName}
+Email: ${rsvp.email}
+Phone: ${rsvp.phone || 'Not provided'}
+Number of Attendees: ${rsvp.attendees}
+Message: ${rsvp.message || 'No message'}
+Timestamp: ${new Date(rsvp.timestamp).toLocaleString()}
+
+Total RSVPs: ${rsvpData.length}
+        `);
+        formData.append('from_name', 'Baptism Celebration Website');
+        formData.append('replyto', rsvp.email);
+        
+        // Alternative: Use FormSubmit.co (free, no API key needed for basic use)
+        fetch('https://formsubmit.co/ajax/michaeljohnlano@gmail.com', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                subject: `New RSVP - ${rsvp.guestName}`,
+                Guest_Name: rsvp.guestName,
+                Email: rsvp.email,
+                Phone: rsvp.phone || 'Not provided',
+                Attendees: rsvp.attendees,
+                Message: rsvp.message || 'No message',
+                Timestamp: new Date(rsvp.timestamp).toLocaleString(),
+                Total_RSVPs: rsvpData.length
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Email sent successfully!', data);
+        })
+        .catch(error => {
+            console.error('Error sending email:', error);
+            // Email sending failed, but we still show the invitation
+        });
+    }
 
     // Generate personalized invitation
     function generateInvitation(guestName) {
