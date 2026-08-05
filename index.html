@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baptism Celebration Invitation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Main Landing Page -->
+    <div id="landing-page" class="page">
+        <div class="container">
+            <header class="hero">
+                <div class="cross-symbol">✝</div>
+                <h1 class="main-title">Baptism Celebration</h1>
+                <p class="subtitle">Join us in celebrating this sacred moment</p>
+            </header>
+
+            <section class="event-details">
+                <div class="detail-card">
+                    <div class="icon">👶</div>
+                    <h3>Our Little Angel</h3>
+                    <p class="child-name">Emma Grace Johnson</p>
+                </div>
+                <div class="detail-card">
+                    <div class="icon">📅</div>
+                    <h3>Date & Time</h3>
+                    <p>Sunday, March 15th, 2025</p>
+                    <p>2:00 PM</p>
+                </div>
+                <div class="detail-card">
+                    <div class="icon">⛪</div>
+                    <h3>Location</h3>
+                    <p>St. Mary's Church</p>
+                    <p>123 Faith Avenue, Heaven City</p>
+                </div>
+            </section>
+
+            <section class="invitation-section">
+                <div class="verse">
+                    <blockquote>
+                        "Let the little children come to me, and do not hinder them, for the kingdom of heaven belongs to such as these."
+                        <cite>- Matthew 19:14</cite>
+                    </blockquote>
+                </div>
+
+                <div class="rsvp-form-container">
+                    <h2>RSVP & Generate Your Invitation</h2>
+                    <p>Please register below to receive your personalized invitation</p>
+                    
+                    <form id="rsvp-form" class="rsvp-form">
+                        <div class="form-group">
+                            <label for="guest-name">Your Full Name *</label>
+                            <input type="text" id="guest-name" name="guest-name" required placeholder="Enter your name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="your@email.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="(123) 456-7890">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="attendees">Number of Attendees *</label>
+                            <select id="attendees" name="attendees" required>
+                                <option value="">Select...</option>
+                                <option value="1">1 Person</option>
+                                <option value="2">2 People</option>
+                                <option value="3">3 People</option>
+                                <option value="4">4 People</option>
+                                <option value="5+">5 or more</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Special Message (Optional)</label>
+                            <textarea id="message" name="message" rows="3" placeholder="Your blessings and wishes..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary">Generate My Invitation ✨</button>
+                    </form>
+                </div>
+            </section>
+
+            <footer>
+                <p>We can't wait to celebrate with you!</p>
+                <p class="contact">For questions: family@email.com | (123) 456-7890</p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Generated Invitation Page (Hidden by default) -->
+    <div id="invitation-page" class="page hidden">
+        <div class="invitation-container">
+            <div class="invitation-card" id="invitation-card">
+                <div class="invitation-header">
+                    <div class="cross-decoration">✝</div>
+                    <h2 class="invitation-title">You're Invited!</h2>
+                </div>
+                
+                <div class="invitation-body">
+                    <p class="invitation-text">Dear</p>
+                    <h3 class="guest-name-display" id="guest-name-display">Guest Name</h3>
+                    <p class="invitation-text">You are cordially invited to celebrate the Baptism of</p>
+                    <h1 class="baptism-child-name">Emma Grace Johnson</h1>
+                    
+                    <div class="invitation-details">
+                        <div class="detail-row">
+                            <span class="detail-label">📅 Date:</span>
+                            <span class="detail-value">Sunday, March 15th, 2025</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">🕐 Time:</span>
+                            <span class="detail-value">2:00 PM</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">⛪ Location:</span>
+                            <span class="detail-value">St. Mary's Church</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">📍 Address:</span>
+                            <span class="detail-value">123 Faith Avenue, Heaven City</span>
+                        </div>
+                    </div>
+                    
+                    <div class="invitation-verse">
+                        <p>"Let the little children come to me..." - Matthew 19:14</p>
+                    </div>
+                    
+                    <div class="invitation-footer">
+                        <p>With love and blessings,</p>
+                        <p class="family-name">The Johnson Family</p>
+                    </div>
+                </div>
+                
+                <div class="invitation-border"></div>
+            </div>
+            
+            <div class="action-buttons">
+                <button id="download-btn" class="btn-primary">📥 Download Invitation</button>
+                <button id="back-btn" class="btn-secondary">← Back to Home</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
